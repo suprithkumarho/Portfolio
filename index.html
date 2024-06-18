@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suprith Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="images/logo.png" class="logo">
+                <ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Professional Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-text">
+                <h1>Hi,<br> I'm Harihar Omkarachari<br><span>Suprith</span> Kumar<br></h1>
+                <p>Master's Student at The University of Texas at Arlington</p>
+                <p>Former Software Engineer 2 at CISCO Systems</p>
+            </div>
+        </div>
+    </div>
+    <!---about -->
+    <div id="about">
+        <div class="container">
+            <div class="about">
+                <h1 class="sub-title">About Me</h1>
+                <p class="about-me-content">I am a highly motivated professional with <span>5 years and 8 months of
+                        experience</span>, most recently as a <span>Software Engineer 2 at CISCO Systems and Tech
+                        Mahindra</span>. My career has spanned diverse domains, including <span>Telecommunication, Big
+                        Data, Advanced Driver-Assistance Systems (ADAS), and Cloud technologies</span>, giving me a
+                    broad skill set and a deep understanding of the tech industry. Currently, I am pursuing a Master of
+                    Science in Artificial Intelligence and Database Systems at the University of Texas at Arlington,
+                    where my passion for technology and problem-solving has grown even stronger. </p>
+                <p class="about-me-content">My academic journey has further enriched my expertise, and I am now actively
+                    seeking roles that will enable me to apply the practical knowledge gained during my professional
+                    tenure and the advanced skills acquired during my master's program. I am eager to contribute to
+                    innovative projects and teams that drive technological advancements, and I am excited about the
+                    opportunity to make a meaningful impact in the tech world. Let's connect and explore how I can bring
+                    value to your organization's goals and objectives.</p>
+            </div>
+        </div>
+        <button id="scroll-up-button" onclick="scrollToTop()"></button>
+    </div>
+    <!--- Skills -->
+    <div id="skills">
+        <h1>Skills</h1>
+        <div class="skills-container">
+            <div class="skills-item">
+                <h2>
+                    Programming Languages
+                </h2>
+                <p>
+                    Python, SQL, PLSQL, Shell Scripting, HTML, CSS, JavaScript, Java
+                </p>
+            </div>
+            <div class="skills-item">
+                <h2>
+                    Frameworks
+                </h2>
+                <p>
+                    Django, Flask, Robot Operating System (ROS), pytest, TestNg, Mockito, Hibernate, Spring
+                </p>
+            </div>
+            <div class="skills-item">
+                <h2>
+                    Cloud Technologies
+                </h2>
+                <p>
+                    AWS (Amazon Web Services) - EC2, Cloudwatch, S3, DynamoDB, SNS, SQS</p>
+                <p>Google Cloud Platform</p>
+                <p>Azure</p>
+            </div>
+            <div class="skills-item">
+                <h2>
+                    Database
+                </h2>
+                <p>
+                    MySQL, PostgreSQL, MongoDB, OrientDB, ServiceNow
+                </p>
+            </div>
+            <div class="skills-item">
+                <h2>
+                    Tools/Softwares
+                </h2>
+                <p>
+                    Postman, Jenkins, JMeter, Firebase, Eclipse, Cramer, Rally, Jira, HP ALM (Application Lifecycle
+                    Management), GitHub, SVN (Subversion), Weblogic, Truevision, Putty
+                </p>
+            </div>
+            <div class="skills-item">
+                <h2>
+                    Big Data
+                </h2>
+                <p>
+                    asdwedfwaefweafaewfwefewrfgewrfwe
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!----Professional work experience-->
+    <div class="expcontainer" id="experience">
+        <h1 >Professional Experience</h1>
+        <div class="timeline">
+            <!-- Experience Box 2 -->
+            <div class="experience-box left-box">
+                <div class="content" onclick="toggleDetails(this)">
+                    <img src="images/cisco.png" alt="Company Logo"></br>
+                    <h3>Cisco Systems (India) Private Limited [Varite India Private Limited ]</h3></br>
+                    <p>Project : Hosted Collaboration Service</p>
+                    <p>Software Engineer 2</p>
+                    <p>Aug 2021 – Aug 2022</p></br>
+                    <div class="details">
+                    <ol>
+                        <li>Implemented Call Flow Automation utilizing Python on the Cisco Unified Communication Application, resulting in a decrease in manual interaction.</li>
+                        <li>Successfully migrated the Cisco Unified Communication Application from a customer premises to the Cisco Collaboration Cloud.</li>
+                        <li>Troubleshot and resolved the upgrade failure of the Unified Communication Applications.</li>
+                        <li>Participated in the planning and implementation of the database schema for the Migration feature using PostgreSQL.</li>
+                        <li>Developed Restful APIs for Migration workflow using Python and Django.</li>
+                        <li>Composed unit tests for the developed feature using pytest library.</li>
+                        <li>Experienced in working within an agile environment, familiar with Scrum framework. Contributed to sprint planning, Standup meetings and retrospectives, and consistently delivered high-quality work within tight deadlines.</li>
+                    </ol>
+                </div>
+                </div>
+            </div>
+
+            <!-- Experience Box 1 -->
+            <div class="experience-box right-box">
+                <div class="content" onclick="toggleDetails(this)">
+                    <img src="images/cisco.png" alt="Company Logo"></br>
+                    <h3>Cisco Systems (India) Private Limited [Varite]</h3></br>
+                    <p>Project : Hosted Collaboration Service</p>
+                    <p>Software Engineer</p>
+                    <p>Jan 2020 – Aug 2021</p></br>
+                    <div class="details">
+                    <ol>
+                        <li>Built RPM (Red Hat Package Manager) packages, which included deployable web-service components and facilitated 1-click installation through the use of Jenkins Jobs.</li>
+                        <li>Worked in a cloud solution that provided upgrade-as-a-service for the CISCO Unified Communication Applications. Conducted upgrades and compatibility testing with other features.</li>
+                        <li>Practical experience with Data Centers and CISCO Unified Communication Applications, including Cisco Unified Communications Manager (CUCM), Cisco Unified Communications Manager IM & Presence Service (CUPS), Cisco Unity Connection (CUC), Cisco Expressway-E and Expressway-C.</li>
+                        <li>Created, Configured and maintained Automation Jenkins Suits for multiple features.</li>
+                        <li>Hands-on Experiences on different types of Migration methods such as Prime Collaboration Deployment (PCD), Left & Shift Migration and Disaster Recovery System (DRS) Back and Restore Migration.</li>
+                    </ol>   
+                </div>                 
+                </div>
+            </div>
+            <!-- Experience Box 1 -->
+            <div class="experience-box left-box">
+                <div class="content" onclick="toggleDetails(this)">
+                    <img src="images/techm.png" alt="TechMahindra Logo"></br>
+                    <h3>Tech Mahindra</h3></br>
+                    <p>Project : Phoenix/ SRIMS</p>
+                    <p>Software Engineer</p>
+                    <p>Nov 2017 – Dec 2019</p></br>
+                    <div class="details">
+                    <ol>
+                        <li>Involved in testing the network using different combinations of devices while emulating various telecom architectures, such as FTTP, FTTC, and FTTH.</li>
+                        <li>Accountable for identifying and validating each potential Test Scenario.</li>
+                        <li>At the end of each sprint, actively evaluated the performance of the entire network design and documented the results.</li>
+                        <li>Used Python to automate the process of creation and validation of networks.</li>
+                        <li>Large customer dataset was migrated and validated from a relational database management system to a Hadoop distributed file system.</li>
+                        <li>In charge of developing the queries for data movement.</li>
+                        <li>Hands-On experience with Apache Spark, Apache Hive, HQL, SQOOP, Oracle Data Integrator, HDFS, and Cramer OSS applications.</li>
+                    </ol>
+                </div>
+                    
+                </div>
+            </div>
+            <!-- Experience Box 2 -->
+            <div class="experience-box right-box">
+                <div class="content" onclick="toggleDetails(this)">
+                    <img src="images/techm.png" alt="TechMahindra Logo"></br>
+                    <h3>Tech Mahindra</h3></br>
+                    <p>Project : Mahindra Advanced Driver Assistance System (Research & Development) </p>
+                    <p>Software Engineer</p>
+                    <p>Feb 2017 – Nov 2017 </p></br>
+                    <div class="details">
+                    <ol>
+                        <li>Have worked on the implementation of the RADAR "TI mmWave Radar (AWR1642Bost ODS)" for Object Detection.</li>
+                        <li>Have worked on the implementation of the LiDAR "LinShen C-32 121A LiDAR", wherein the 3D point cloud data was extracted and processed.</li>
+                        <li>Have worked on Machine learning, specifically on the Supervised learning wherein the speed of the vehicle was controlled based on the external road factors.</li>
+                        <li>Actively coordinated and worked with the team for the implementation of GPS and IMU sensor.</li>
+                        <li>Developed code for object detection and lane detection.</li>
+                    </ol>         
+                </div>           
+                </div>
+            </div>
+            
+             
+            
+
+        </div>
+    </div>
+    <div id="projects">
+        <h1 class="sub-title">Projects</h1>
+        <div class="projects-container">
+            <!-- Example Project Tile -->
+            <div class="project-tile">
+                <a href="https://github.com/suprithkumarho/AWS_Patient_Identity_Verification" target="_blank">
+                    <img src="images/AWS_Patient_Identification.png" alt="Project 1">
+                    <div class="project-title">AWS: Patient Identification</div>
+                </a>
+            </div>
+            <div class="project-tile">
+                <a href="https://github.com/suprithkumarho/ReactProjects/tree/main/project-1-NikeShopping" target="_blank">
+                    <img src="images/NikeProject.png" alt="Project 2">
+                    <div class="project-title">Nike-Shopping Page</div>
+                </a>
+            </div>
+            <div class="project-tile">
+                <a href="https://github.com/suprithkumarho/ReactProjects/tree/main/project-1-NikeShopping" target="_blank">
+                    <img src="images/NikeProject.png" alt="Project 2">
+                    <div class="project-title">Nike-Shopping Page</div>
+                </a>
+            </div>
+            <div class="project-tile">
+                <a href="https://github.com/suprithkumarho/ReactProjects/tree/main/project-1-NikeShopping" target="_blank">
+                    <img src="images/NikeProject.png" alt="Project 2">
+                    <div class="project-title">Nike-Shopping Page</div>
+                </a>
+            </div>
+            <div class="project-tile">
+                <a href="https://github.com/suprithkumarho/ReactProjects/tree/main/project-1-NikeShopping" target="_blank">
+                    <img src="images/NikeProject.png" alt="Project 2">
+                    <div class="project-title">Nike-Shopping Page</div>
+                </a>
+            </div>
+            <!-- Add more project tiles as needed -->
+        </div>
+    </div>
+    
+    <div id="contact">
+        <h1 class="sub-title">Contact Me</h1>
+        <div class="contact-form">
+            <form action="https://formspree.io/f/xvovywkd" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="_replyto" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    
+</body>
+    
+</html>
