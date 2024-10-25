@@ -1,0 +1,231 @@
+/* =========================================
+   Responsive Design Styles
+   ========================================= */
+
+/* Large Screens (default styles) */
+:root {
+    --sidebar-width: 280px;
+}
+
+/* Tablet Breakpoint */
+@media (max-width: 1024px) {
+    :root {
+        --sidebar-width: 240px;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .name {
+        font-size: var(--font-size-lg);
+    }
+
+    .social-links a {
+        width: 35px;
+        height: 35px;
+        font-size: var(--font-size-lg);
+    }
+}
+
+/* Mobile Landscape Breakpoint */
+@media (max-width: 768px) {
+    :root {
+        --sidebar-width: 100%;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    /* Mobile Navigation */
+    .mobile-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--spacing-md);
+        background-color: var(--background-light);
+        border-bottom: 1px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 900;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: var(--font-size-xl);
+        color: var(--text-primary);
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: var(--spacing-sm);
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+
+    /* Timeline */
+    .timeline-container::before {
+        left: 15px;
+    }
+
+    .timeline-item {
+        margin-left: var(--spacing-xl);
+        padding-left: var(--spacing-xl);
+    }
+
+    .timeline-item::before {
+        left: -9px;
+    }
+
+    /* Contact Form */
+    .contact-wrapper {
+        padding: var(--spacing-md);
+    }
+
+    .form-group {
+        margin-bottom: var(--spacing-md);
+    }
+}
+
+/* Mobile Portrait Breakpoint */
+@media (max-width: 480px) {
+    /* General Spacing */
+    :root {
+        --spacing-xl: 1.5rem;
+        --spacing-2xl: 2rem;
+    }
+
+    /* Section Padding */
+    .section {
+        padding: var(--spacing-md);
+    }
+
+    /* Profile Image */
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .project-card {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    /* Technology Tags */
+    .tech-badge {
+        font-size: var(--font-size-xs);
+        padding: 2px var(--spacing-sm);
+    }
+
+    /* Timeline */
+    .company-header {
+        flex-direction: column;
+    }
+
+    .company-info {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    /* Contact Form */
+    .form-group label {
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .submit-button {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+}
+
+/* Handle Landscape Mode */
+@media (max-height: 480px) and (orientation: landscape) {
+    .sidebar {
+        overflow-y: auto;
+    }
+
+    .profile-image {
+        width: 80px;
+        height: 80px;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .sidebar-nav {
+        padding: var(--spacing-sm);
+    }
+
+    .nav-link {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 0;
+    }
+
+    .mobile-nav {
+        display: none;
+    }
+
+    .section {
+        page-break-inside: avoid;
+    }
+}
+
+/* High DPI Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .profile-image img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-light: #1a1a1a;
+        --background-dark: #121212;
+        --text-primary: #ffffff;
+        --text-secondary: #a0aec0;
+        --border-color: #2d2d2d;
+    }
+
+    .sidebar {
+        background-color: #1a1a1a;
+    }
+
+    .mobile-nav {
+        background-color: #1a1a1a;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

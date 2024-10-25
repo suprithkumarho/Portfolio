@@ -1,0 +1,278 @@
+/* =========================================
+   Timeline Component Styles
+   ========================================= */
+
+   .timeline-container {
+    position: relative;
+    padding: var(--spacing-md) 0;
+    margin-left: var(--spacing-md);
+}
+
+/* Timeline Line */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        var(--border-color) 0%,
+        var(--primary-light) 50%,
+        var(--border-color) 100%
+    );
+}
+
+/* Timeline Items */
+.timeline-item {
+    position: relative;
+    margin-left: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInRight 0.5s ease forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.3s; }
+.timeline-item:nth-child(3) { animation-delay: 0.5s; }
+
+/* Timeline Dots */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: calc(-1 * var(--spacing-xl) - 5px);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    border: 2px solid var(--background-light);
+    box-shadow: 0 0 0 4px var(--primary-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+}
+
+.timeline-item:hover::before {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 6px var(--primary-light);
+}
+
+/* Company Card */
+.company-card {
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.company-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    border-color: var(--primary-light);
+}
+
+/* Company Header */
+.company-header {
+    display: grid;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+}
+
+.company-info {
+    display: grid;
+    gap: var(--spacing-xs);
+}
+
+.company-name {
+    font-size: var(--font-size-base);
+    color: var(--text-primary);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.company-name i {
+    color: var(--primary-color);
+    font-size: var(--font-size-sm);
+}
+
+.company-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-xs);
+}
+
+.company-duration,
+.company-location {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--text-secondary);
+}
+
+.company-duration i,
+.company-location i {
+    color: var(--primary-color);
+    font-size: var(--font-size-sm);
+}
+
+/* Role Details */
+.role-details {
+    display: none;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--border-color);
+    margin-top: var(--spacing-sm);
+    animation: slideDown 0.3s ease;
+}
+
+.role-details.active {
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+.role-title {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+/* Achievements List */
+.achievements-list {
+    list-style: none;
+    display: grid;
+    gap: var(--spacing-xs);
+    padding-left: var(--spacing-md);
+}
+
+.achievement-item {
+    position: relative;
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+}
+
+.achievement-item::before {
+    content: '•';
+    position: absolute;
+    left: -1rem;
+    color: var(--primary-color);
+}
+
+/* Technologies Used */
+.technologies-used {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-xs);
+}
+
+.tech-tag {
+    background-color: var(--background-dark);
+    color: var(--primary-color);
+    padding: 2px var(--spacing-sm);
+    border-radius: 12px;
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Expand/Collapse Indicator */
+.company-card::after {
+    content: '\f107';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: var(--spacing-md);
+    top: var(--spacing-md);
+    color: var(--text-secondary);
+    transition: transform 0.3s ease;
+}
+
+.company-card.active::after {
+    transform: rotate(180deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .timeline-container {
+        margin-left: 0;
+    }
+
+    .timeline-container::before {
+        left: 12px;
+    }
+
+    .timeline-item {
+        margin-left: var(--spacing-xl);
+    }
+
+    .timeline-item::before {
+        left: -18px;
+    }
+
+    .company-header {
+        gap: var(--spacing-xs);
+    }
+
+    .company-meta {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+
+    .company-card {
+        padding: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-item {
+        margin-left: var(--spacing-lg);
+    }
+
+    .tech-tag {
+        font-size: var(--font-size-xs);
+        padding: 1px var(--spacing-xs);
+    }
+
+    .achievements-list {
+        padding-left: var(--spacing-sm);
+    }
+}
