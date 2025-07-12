@@ -219,7 +219,7 @@ class SimpleEmailNotifier {
 
     createEmailMessage(visitorInfo) {
         return `
-Hello Harihar,
+Hello Harihar Omkarachari Suprith Kumar,
 
 You have a new portfolio view!
 

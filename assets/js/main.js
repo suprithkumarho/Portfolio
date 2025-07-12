@@ -150,13 +150,13 @@ function navigateToSection(sectionId) {
     // Resume Download Functionality
     downloadButton?.addEventListener('click', async () => {
         try {
-            const response = await fetch('assets/resume/Harihar_Omkarachari_Suprith_Kumar_Resume.pdf');
+            const response = await fetch('resume/Harihar_Omkarachari_Suprith_Kumar_Resume.pdf');
             const blob = await response.blob();
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.style.display = 'none';
             a.href = url;
-            a.download = 'Harihar_Suprith_Kumar_Resume.pdf';
+            a.download = 'Harihar_Omkarachari_Suprith_Kumar_Resume.pdf';
             document.body.appendChild(a);
             a.click();
             window.URL.revokeObjectURL(url);

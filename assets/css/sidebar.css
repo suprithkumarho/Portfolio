@@ -122,124 +122,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Visitor Statistics Section */
-.visitor-stats {
-    padding: var(--spacing-lg);
-    margin: var(--spacing-lg) 0;
-    background-color: var(--background-dark);
-    border-radius: var(--border-radius);
-}
 
-/* Sidebar Visitor Stats */
-.visitor-stats-sidebar {
-    padding: var(--spacing-md);
-    margin: var(--spacing-md) var(--spacing-lg);
-    background-color: var(--background-dark);
-    border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
-}
-
-.visitor-stats-sidebar .visitor-count {
-    text-align: center;
-    margin-bottom: 0;
-}
-
-.visitor-stats-sidebar .visitor-count h4 {
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-xs);
-}
-
-.visitor-stats-sidebar .visitor-count h4 i {
-    color: var(--primary-color);
-}
-
-.visitor-stats-sidebar .count-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-xs);
-}
-
-.visitor-stats-sidebar .total-count {
-    font-size: var(--font-size-xl);
-    font-weight: 600;
-    color: var(--primary-color);
-}
-
-.visitor-stats-sidebar .count-label {
-    font-size: var(--font-size-xs);
-    color: var(--text-secondary);
-}
-
-/* Visitor Countries Section */
-.visitor-countries {
-    margin-top: var(--spacing-md);
-}
-
-.visitor-countries h4 {
-    font-size: var(--font-size-xs);
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-sm);
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-}
-
-.visitor-countries h4 i {
-    color: var(--primary-color);
-}
-
-.country-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xs);
-}
-
-.country-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--spacing-xs) var(--spacing-sm);
-    background-color: var(--background-light);
-    border-radius: var(--border-radius);
-    font-size: var(--font-size-xs);
-    animation: slideIn 0.3s ease-out forwards;
-    opacity: 0;
-}
-
-.country-item:nth-child(1) { animation-delay: 0.1s; }
-.country-item:nth-child(2) { animation-delay: 0.2s; }
-.country-item:nth-child(3) { animation-delay: 0.3s; }
-.country-item:nth-child(4) { animation-delay: 0.4s; }
-.country-item:nth-child(5) { animation-delay: 0.5s; }
-
-.country-flag {
-    font-size: var(--font-size-base);
-    margin-right: var(--spacing-xs);
-}
-
-.country-name {
-    flex: 1;
-    color: var(--text-secondary);
-}
-
-.country-count {
-    font-weight: 500;
-    color: var(--primary-color);
-    background-color: var(--background-dark);
-    padding: 2px var(--spacing-xs);
-    border-radius: 12px;
-    min-width: 24px;
-    text-align: center;
-}
 
 /* Download Resume Button */
 .download-resume {
@@ -319,9 +202,7 @@
         font-size: var(--font-size-lg);
     }
 
-    .visitor-stats {
-        padding: var(--spacing-md);
-    }
+
 
     .country-item {
         padding: var(--spacing-xs);

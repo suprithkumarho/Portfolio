@@ -117,6 +117,29 @@
     padding: 1rem;
 }
 
+/* AWS Icon Container */
+.aws-icon-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #FF9900 0%, #FF6B35 100%);
+    position: relative;
+}
+
+.aws-icon {
+    font-size: 4rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .aws-icon {
+    transform: scale(1.1);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
 /* Project Overlay */
 .project-overlay {
     position: absolute;

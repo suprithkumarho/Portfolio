@@ -93,12 +93,14 @@
     gap: var(--spacing-md);
     font-size: var(--font-size-sm);
     color: var(--text-secondary);
+    align-items: center;
 }
 
 .education-info span {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
+    white-space: nowrap;
 }
 
 .education-info i {

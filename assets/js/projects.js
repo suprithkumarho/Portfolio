@@ -3,16 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const projectsData = [
         {
-            title: "KioskInsight",
-            description: "Automated product recognition and shelf placement in kiosks using Python and AWS achieving 70% accuracy. Generated detailed reports and improved inventory management, reducing manual verification time by 80%.",
-            image: "kioskinsight.jpg",
-            technologies: ["Python", "FPDF", "PIL", "OpenCV", "AWS S3", "AWS Rekognition", "AWS Lambda", "AWS SageMaker"],
-            links: {
-                github: "#"
-            },
-            date: "May 2024 – May 2024"
-        },
-        {
             title: "PatientVerify",
             description: "A scalable healthcare patient management app using AWS with facial recognition, reducing identification errors by 20% and administrative burden. Provided doctors with easy access to patient medical history for improved care.",
             image: "patientverify.png",
@@ -25,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             title: "Sentiment Analysis for Movie Reviews",
             description: "Implemented a deep learning-based sentiment analysis model for movie reviews. Achieved up to 87.83% accuracy through advanced preprocessing and neural network techniques.",
-            image: "sentiment-analysis.jpg",
+            image: "movie_analysis.jpg",
             technologies: ["Python", "TensorFlow", "NLTK", "Word2Vec", "LSTM", "CNN", "RNN", "BiLSTM"],
             links: {
                 github: "#"
@@ -57,13 +47,23 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             title: "Issue Tracker",
             description: "Developed a location-based public grievances platform enabling users to report community issues in real-time. Implemented tracking of resolution status and increased civic engagement.",
-            image: "issue-tracker.jpg",
+            image: "Issuetracker.png",
             technologies: ["PHP", "MySQL"],
             links: {
                 demo: "#",
                 github: "#"
             },
             date: "Sep 2022 – Dec 2022"
+        },
+        {
+            title: "KioskInsight",
+            description: "Automated product recognition and shelf placement in kiosks using Python and AWS achieving 70% accuracy. Generated detailed reports and improved inventory management, reducing manual verification time by 80%.",
+            image: "aws-icon",
+            technologies: ["Python", "FPDF", "PIL", "OpenCV", "AWS S3", "AWS Rekognition", "AWS Lambda", "AWS SageMaker"],
+            links: {
+                github: "#"
+            },
+            date: "May 2024 – May 2024"
         },
         {
             title: "Nike Footwear Fashion",
@@ -104,42 +104,51 @@ document.addEventListener('DOMContentLoaded', function() {
         const projectsGrid = document.querySelector('.projects-grid');
         if (!projectsGrid) return;
     
-        const projectsHTML = filteredProjects.map((project, index) => `
-            <div class="project-card" style="animation-delay: ${index * 0.1}s">
-                <div class="project-image">
-                    <img src="${getImagePath(project.image)}" 
-                         alt="${project.title}"
-                         loading="lazy"
-                         onerror="console.warn('Failed to load image for ${project.title}, using fallback'); this.src='assets/images/profile.jpg'; this.onerror=null;"
-                         onload="console.log('Successfully loaded image for ${project.title}'); this.classList.add('loaded')"
-                    >
-                    <div class="project-overlay"></div>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">${project.title}</h3>
-                    <p class="project-description">${project.description}</p>
-                    <div class="project-tech-stack">
-                        ${project.technologies.map(tech => `
-                            <span class="tech-badge" data-tech="${tech}">${tech}</span>
-                        `).join('')}
+        const projectsHTML = filteredProjects.map((project, index) => {
+            // Handle AWS icon case
+            const imageContent = project.image === "aws-icon" 
+                ? `<div class="aws-icon-container">
+                     <i class="fab fa-aws aws-icon"></i>
+                   </div>`
+                : `<img src="${getImagePath(project.image)}" 
+                       alt="${project.title}"
+                       loading="lazy"
+                       onerror="console.warn('Failed to load image for ${project.title}, using fallback'); this.src='assets/images/profile.jpg'; this.onerror=null;"
+                       onload="console.log('Successfully loaded image for ${project.title}'); this.classList.add('loaded')"
+                   >`;
+            
+            return `
+                <div class="project-card" style="animation-delay: ${index * 0.1}s">
+                    <div class="project-image">
+                        ${imageContent}
+                        <div class="project-overlay"></div>
                     </div>
-                    <div class="project-links">
-                        ${project.links.demo ? `
-                            <a href="${project.links.demo}" class="project-link" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-external-link-alt"></i>
-                                Live Demo
-                            </a>
-                        ` : ''}
-                        ${project.links.github ? `
-                            <a href="${project.links.github}" class="project-link" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-github"></i>
-                                Source Code
-                            </a>
-                        ` : ''}
+                    <div class="project-content">
+                        <h3 class="project-title">${project.title}</h3>
+                        <p class="project-description">${project.description}</p>
+                        <div class="project-tech-stack">
+                            ${project.technologies.map(tech => `
+                                <span class="tech-badge" data-tech="${tech}">${tech}</span>
+                            `).join('')}
+                        </div>
+                        <div class="project-links">
+                            ${project.links.demo ? `
+                                <a href="${project.links.demo}" class="project-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Live Demo
+                                </a>
+                            ` : ''}
+                            ${project.links.github ? `
+                                <a href="${project.links.github}" class="project-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i>
+                                    Source Code
+                                </a>
+                            ` : ''}
+                        </div>
                     </div>
                 </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
     
         projectsGrid.innerHTML = projectsHTML;
     }
