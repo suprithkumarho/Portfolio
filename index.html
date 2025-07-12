@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="assets/css/timeline.css">
     <link rel="stylesheet" href="assets/css/skills.css">
     <link rel="stylesheet" href="assets/css/education.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,42 +33,81 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <div class="theme-scene">
+            <!-- Day Scene -->
+            <div class="day-scene">
+                <div class="sun"></div>
+                <div class="cloud"></div>
+            </div>
+            
+            <!-- Night Scene -->
+            <div class="night-scene">
+                <div class="moon"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+            </div>
+        </div>
+    </button>
+
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Sidebar -->
-    <aside class="sidebar">
-        <div class="sidebar-header">
-            <div class="profile-image">
-                <img src="assets/images/profile.jpg" alt="Harihar Suprith Kumar" width="150" height="150">
-            </div>
-            <h1 class="name">Harihar Suprith Kumar</h1>
-            <p class="title">Senior Software Engineer</p>
+    <!-- Sidebar -->
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <div class="profile-image">
+            <img src="assets/images/profile.jpg" alt="Harihar Suprith Kumar" width="150" height="150">
         </div>
-        
-        <div class="sidebar-footer">
-            <div class="social-links" aria-label="Social Links">
-                <a href="mailto:kumar.suprithho@gmail.com" title="Email" aria-label="Send email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://linkedin.com/in/hosuprithkumar" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile" aria-label="Visit LinkedIn profile">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/suprithkumarho" target="_blank" rel="noopener noreferrer" title="GitHub Profile" aria-label="Visit GitHub profile">
-                    <i class="fab fa-github"></i>
-                </a>
+        <h1 class="name">Harihar Suprith Kumar</h1>
+        <p class="title">Software Engineer</p>
+        <p class="subtitle">Full Stack Developer & Cloud Specialist</p>
+        <p class="location"><i class="fas fa-map-marker-alt"></i> California, USA</p>
+    </div>
+
+    <!-- Visitor Statistics Section -->
+    <div class="visitor-stats-sidebar">
+        <div class="visitor-count">
+            <h4><i class="fas fa-chart-line"></i> Portfolio Views</h4>
+            <div class="count-wrapper">
+                <span class="total-count" id="sidebarVisitorCount">0</span>
+                <span class="count-label">Total Visits</span>
             </div>
-            <button class="download-resume">
-                <i class="fas fa-download"></i> Download Resume
-            </button>
         </div>
-    </aside>
+    </div>
+    
+    <div class="sidebar-footer">
+        <div class="social-links" aria-label="Social Links">
+            <a href="mailto:kumar.suprithho@gmail.com" title="Email" aria-label="Send email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://linkedin.com/in/hosuprithkumar" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile" aria-label="Visit LinkedIn profile">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/suprithkumarho" target="_blank" rel="noopener noreferrer" title="GitHub Profile" aria-label="Visit GitHub profile">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <button class="download-resume">
+            <i class="fas fa-download"></i> Download Resume
+        </button>
+    </div>
+</aside>
 
     <!-- Main Content Area -->
     <div class="content-wrapper">
         <!-- Top Navigation -->
         <nav class="top-nav">
             <div class="container">
+                <!-- Theme Toggle for Mobile -->
+                <button class="theme-toggle mobile-theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-sun light-icon"></i>
+                    <i class="fas fa-moon dark-icon"></i>
+                </button>
                 <ul class="nav-links">
                     <li>
                         <a href="#about" class="nav-link active" aria-current="page">
@@ -94,11 +134,11 @@
                             <i class="fas fa-graduation-cap"></i>Education
                         </a>
                     </li>
-                    <li>
+                   <!-- <li>
                         <a href="#contact" class="nav-link">
                             <i class="fas fa-envelope"></i>Contact
                         </a>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
         </nav>
@@ -136,7 +176,7 @@
             
                     <!-- Brief Description -->
                     <p class="about-description">
-                        Senior Software Engineer with expertise in full-stack development, cloud technologies, and distributed systems. 
+                        Software Engineer with expertise in full-stack development, cloud technologies, and distributed systems. 
                         Experienced in building scalable applications and implementing efficient solutions using modern technologies.
                     </p>
             
@@ -148,7 +188,7 @@
                                 <i class="fas fa-briefcase"></i>
                             </div>
                             <div class="card-content">
-                                <h3 class="counter" data-target="7">0</h3>
+                                <h3 class="counter" data-target="8">0</h3>
                                 <span class="card-label">Years of Experience</span>
                             </div>
                         </div>
@@ -159,8 +199,8 @@
                                 <i class="fas fa-code-branch"></i>
                             </div>
                             <div class="card-content">
-                                <h3 class="counter" data-target="50">0</h3>
-                                <span class="card-label">Projects Completed</span>
+                                <h3 class="counter" data-target="15">0</h3>
+                                <span class="card-label">Major Projects</span>
                             </div>
                         </div>
             
@@ -170,7 +210,7 @@
                                 <i class="fas fa-building"></i>
                             </div>
                             <div class="card-content">
-                                <h3 class="counter" data-target="3">0</h3>
+                                <h3 class="counter" data-target="8">0</h3>
                                 <span class="card-label">Companies Worked</span>
                             </div>
                         </div>
@@ -217,8 +257,8 @@
                             </div>
                         </div>
                     </div>
-            
-                    <!-- Technologies -->
+            <!--
+                    
                     <div class="tech-stack">
                         <h3>Core Technologies</h3>
                         <div class="tech-tags">
@@ -233,6 +273,29 @@
                             <span class="tech-tag">SQL</span>
                             <span class="tech-tag">NoSQL</span>
                         </div>
+                    </div>
+                </div>
+            -->
+                
+                <div class="visitor-stats">
+                    <div class="visitor-count">
+                        <h3><i class="fas fa-chart-line"></i> Visitors</h3>
+                        <div class="count-wrapper">
+                            <span class="total-count" id="visitorCount">0</span>
+                            <span class="count-label">Total Visits</span>
+                        </div>
+                    </div>
+                    
+                    <div class="visitor-countries">
+                        <h4><i class="fas fa-globe-americas"></i> Top Countries</h4>
+                        <ul class="country-list" id="countryList">
+                            <!-- Countries will be populated dynamically -->
+                            <li class="country-item">
+                                <span class="country-flag">🌐</span>
+                                <span class="country-name">Loading...</span>
+                                <span class="country-count">0</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -466,7 +529,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div
                 </div>
             </div>
         </section>
@@ -481,7 +544,9 @@
     </div>
 
     <!-- Add this before your existing script tags -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>\
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <!-- EmailJS for email notifications -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <!-- JavaScript Files -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/timeline.js"></script>
@@ -490,6 +555,9 @@
     <script src="assets/js/skills.js"></script>
     <script src="assets/js/education.js"></script>
     <script src="assets/js/about.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/visitors.js"></script>
+    <script src="assets/js/email-notifications.js"></script>
 
     <!-- Preload Critical Images -->
     <link rel="preload" as="image" href="assets/images/profile.jpg">

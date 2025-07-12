@@ -67,12 +67,34 @@
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
     cursor: pointer;
+    position: relative;
 }
 
 .company-card:hover {
     transform: translateX(4px);
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
     border-color: var(--primary-light);
+}
+
+.company-card::before {
+    content: 'Click to expand';
+    position: absolute;
+    right: var(--spacing-md);
+    top: var(--spacing-md);
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.company-card:hover::before {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+.company-card.active::before {
+    content: 'Click to collapse';
+    color: var(--primary-color);
 }
 
 /* Company Header */
@@ -189,6 +211,64 @@
     background-color: var(--primary-color);
     color: white;
     transform: translateY(-1px);
+}
+
+/* Awards Section */
+.awards-section {
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: linear-gradient(135deg, var(--primary-light) 0%, rgba(59, 130, 246, 0.05) 100%);
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--primary-color);
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.awards-title {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.awards-title i {
+    color: #FFD700;
+    font-size: var(--font-size-base);
+}
+
+.awards-list {
+    list-style: none;
+    display: grid;
+    gap: var(--spacing-xs);
+    margin: 0;
+    padding: 0;
+}
+
+.award-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.4;
+    padding: var(--spacing-xs) 0;
+}
+
+.award-item i {
+    color: #FFD700;
+    font-size: var(--font-size-xs);
+    flex-shrink: 0;
+}
+
+/* Ensure awards section is visible in expanded cards */
+.role-details.active .awards-section {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* Animations */

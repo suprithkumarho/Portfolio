@@ -3,20 +3,39 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const projectsData = [
         {
+            title: "KioskInsight",
+            description: "Automated product recognition and shelf placement in kiosks using Python and AWS achieving 70% accuracy. Generated detailed reports and improved inventory management, reducing manual verification time by 80%.",
+            image: "kioskinsight.jpg",
+            technologies: ["Python", "FPDF", "PIL", "OpenCV", "AWS S3", "AWS Rekognition", "AWS Lambda", "AWS SageMaker"],
+            links: {
+                github: "#"
+            },
+            date: "May 2024 – May 2024"
+        },
+        {
             title: "PatientVerify",
-            description: "A scalable healthcare patient management app using AWS with facial recognition, reducing identification errors by 20% and administrative burden.",
-            image: "assets/images/projects/patientverify.jpg",
+            description: "A scalable healthcare patient management app using AWS with facial recognition, reducing identification errors by 20% and administrative burden. Provided doctors with easy access to patient medical history for improved care.",
+            image: "patientverify.png",
             technologies: ["HTML", "CSS", "JavaScript", "AWS S3", "AWS Rekognition", "DynamoDB", "Lambda", "API Gateway", "IAM"],
             links: {
-                demo: "#",
-                github: "#"
+                github: "https://github.com/suprithkumarho/AWS_Patient_Identity_Verification"
             },
             date: "Mar 2024 – Apr 2024"
         },
         {
+            title: "Sentiment Analysis for Movie Reviews",
+            description: "Implemented a deep learning-based sentiment analysis model for movie reviews. Achieved up to 87.83% accuracy through advanced preprocessing and neural network techniques.",
+            image: "sentiment-analysis.jpg",
+            technologies: ["Python", "TensorFlow", "NLTK", "Word2Vec", "LSTM", "CNN", "RNN", "BiLSTM"],
+            links: {
+                github: "#"
+            },
+            date: "Jan 2024 – Mar 2024"
+        },
+        {
             title: "ResiComm",
             description: "Academic web app for housing community with house booking, visitor passes, parking management, chat, and announcements, improving resident engagement by 40%.",
-            image: "assets/images/projects/resicomm.jpg",
+            image: "resicomm.jpg",
             technologies: ["HTML", "CSS", "JavaScript", "Laravel", "PHP", "NodeJs", "React", "MySQL", "XAMPP"],
             links: {
                 demo: "#",
@@ -26,9 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             title: "PARK-IT",
-            description: "Parking management system integrated with campus maps and sensors, enabling users to find, reserve, and navigate to available parking slots.",
-            image: "assets/images/projects/parkit.jpg",
-            technologies: ["ReactJs", "Firebase", "GCP Spanner", "Video Intelligence API", "Cloud Storage"],
+            description: "Parking management system integrated with campus maps and sensors, enabling users to find, reserve, and navigate to available parking slots. Reduced congestion and parking time by 50%.",
+            image: "parkit.jpg",
+            technologies: ["ReactJs", "Firebase", "smtplib", "GCP Spanner", "Video Intelligence API", "Cloud Storage"],
             links: {
                 demo: "#",
                 github: "#"
@@ -36,49 +55,64 @@ document.addEventListener('DOMContentLoaded', function() {
             date: "Jan 2023 – Apr 2023"
         },
         {
-            title: "Smart Home Automation",
-            description: "IoT-based home automation system with real-time monitoring and control capabilities using AWS IoT Core and React Native mobile app.",
-            image: "assets/images/projects/smarthome.jpg",
-            technologies: ["React Native", "AWS IoT", "NodeJS", "MongoDB", "MQTT", "Express"],
+            title: "Issue Tracker",
+            description: "Developed a location-based public grievances platform enabling users to report community issues in real-time. Implemented tracking of resolution status and increased civic engagement.",
+            image: "issue-tracker.jpg",
+            technologies: ["PHP", "MySQL"],
             links: {
                 demo: "#",
                 github: "#"
             },
-            date: "Jun 2023 – Aug 2023"
+            date: "Sep 2022 – Dec 2022"
         },
         {
-            title: "AI Image Generator",
-            description: "Web application utilizing OpenAI's DALL-E API to generate and manipulate images with natural language prompts.",
-            image: "assets/images/projects/aigen.jpg",
-            technologies: ["React", "Node.js", "OpenAI API", "MongoDB", "Express", "AWS S3"],
+            title: "Nike Footwear Fashion",
+            description: "Modern React app showcasing latest footwear fashion with interactive UI components.",
+            image: "Nike.jpg",
+            technologies: ["React", "HTML", "CSS"],
             links: {
-                demo: "#",
-                github: "#"
+                github: "https://github.com/suprithkumarho/NikeShopping"
             },
-            date: "Apr 2023 – May 2023"
-        },
-        {
-            title: "DevOps Pipeline",
-            description: "Automated CI/CD pipeline implementation using Jenkins, Docker, and Kubernetes for microservices deployment.",
-            image: "assets/images/projects/devops.jpg",
-            technologies: ["Jenkins", "Docker", "Kubernetes", "AWS", "Terraform", "Git"],
-            links: {
-                demo: "#",
-                github: "#"
-            },
-            date: "Feb 2023 – Mar 2023"
+            date: "June 2024"
         }
     ];
+
+    function getImagePath(imagePath) {
+        // Base path for images (relative to current page)
+        const basePath = 'assets/images/';
+        
+        // Default fallback image
+        const fallbackImage = `${basePath}profile.jpg`;
+        
+        // If no image path provided, return fallback
+        if (!imagePath) {
+            console.warn('No image path provided, using fallback');
+            return fallbackImage;
+        }
+        
+        // If image path doesn't start with basePath, add it
+        if (!imagePath.startsWith(basePath)) {
+            imagePath = basePath + imagePath.split('/').pop();
+        }
+        
+        console.log(`Image path resolved: ${imagePath}`);
+        return imagePath;
+    }
 
     // Function to create project cards with animation delay
     function createProjectCards(filteredProjects = projectsData) {
         const projectsGrid = document.querySelector('.projects-grid');
         if (!projectsGrid) return;
-
+    
         const projectsHTML = filteredProjects.map((project, index) => `
             <div class="project-card" style="animation-delay: ${index * 0.1}s">
                 <div class="project-image">
-                    <img src="${project.image}" alt="${project.title}" loading="lazy">
+                    <img src="${getImagePath(project.image)}" 
+                         alt="${project.title}"
+                         loading="lazy"
+                         onerror="console.warn('Failed to load image for ${project.title}, using fallback'); this.src='assets/images/profile.jpg'; this.onerror=null;"
+                         onload="console.log('Successfully loaded image for ${project.title}'); this.classList.add('loaded')"
+                    >
                     <div class="project-overlay"></div>
                 </div>
                 <div class="project-content">
@@ -106,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         `).join('');
-
+    
         projectsGrid.innerHTML = projectsHTML;
     }
 

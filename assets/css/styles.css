@@ -2,19 +2,35 @@
    Base Styles & CSS Variables
    ========================================= */
    :root {
-    /* Color Scheme */
+    /* Theme Colors - Light Mode Default */
     --primary-color: #2563eb;
     --primary-light: #3b82f6;
     --primary-dark: #1d4ed8;
     --secondary-color: #64748b;
-    --background-light: #ffffff;
+
+    /* Background Colors */
+    --background-light: #fffffe;
     --background-dark: #f8fafc;
+    --background-alternate: #f1f5f9;
+    
+    /* Text Colors */
     --text-primary: #1e293b;
     --text-secondary: #475569;
     --text-light: #94a3b8;
+    
+    /* Border Colors */
     --border-color: #e2e8f0;
+    
+    /* Status Colors */
     --success-color: #22c55e;
     --error-color: #ef4444;
+    --warning-color: #f59e0b;
+    --info-color: #3b82f6;
+
+    /* Card & Shadow */
+    --card-background: #ffffff;
+    --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    --hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 
     /* Typography */
     --font-primary: 'Inter', sans-serif;
@@ -31,13 +47,44 @@
     --border-radius: 8px;
     --box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
 
-    /* Updated Spacing */
-    --spacing-xs: 0.25rem;  /* 4px */
-    --spacing-sm: 0.5rem;   /* 8px */
-    --spacing-md: 0.75rem;  /* 12px */
-    --spacing-lg: 1rem;     /* 16px */
-    --spacing-xl: 1.5rem;   /* 24px */
-    --spacing-2xl: 2rem;    /* 32px */
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 0.75rem;
+    --spacing-lg: 1rem;
+    --spacing-xl: 1.5rem;
+    --spacing-2xl: 2rem;
+}
+
+/* Dark Mode Theme Variables */
+[data-theme="dark"] {
+    --primary-color: #3b82f6;
+    --primary-light: #60a5fa;
+    --primary-dark: #2563eb;
+    --secondary-color: #94a3b8;
+
+    /* Background Colors */
+    --background-light: #1a1a1a;
+    --background-dark: #111111;
+    --background-alternate: #1f1f1f;
+    
+    /* Text Colors */
+    --text-primary: #e2e8f0;
+    --text-secondary: #cbd5e1;
+    --text-light: #94a3b8;
+    
+    /* Border Colors */
+    --border-color: #2d2d2d;
+    
+    /* Card & Shadow */
+    --card-background: #1f1f1f;
+    --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+    --hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+}
+
+/* Theme Transition */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Reset & Base Styles */
@@ -48,7 +95,6 @@
 }
 
 html {
-    scroll-behavior: smooth;
     scroll-padding-top: var(--header-height);
 }
 
@@ -57,8 +103,7 @@ body {
     font-size: var(--font-size-base);
     line-height: 1.5;
     color: var(--text-primary);
-    background-color: var(--background-light);
-    overflow-x: hidden;
+    background-color: var(--background-dark);
 }
 
 /* Layout */
@@ -67,6 +112,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: var(--background-dark);
+    justify-content: center; /* Center content vertically */
 }
 
 .main-content {
@@ -75,14 +122,16 @@ body {
     max-width: 1440px;
     margin: 0 auto;
     padding: calc(var(--header-height) + var(--spacing-lg)) var(--spacing-xl) var(--spacing-xl);
-    background-color: var(--background-dark);
+    display: flex;  /* Add flex display */
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
 }
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
     font-weight: 600;
     line-height: 1.2;
-    color: var(--text-primary);
 }
 
 h1 { font-size: var(--font-size-2xl); }
@@ -94,10 +143,24 @@ p {
     color: var(--text-secondary);
 }
 
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+.sidebar {
+    border-right: none; /* Remove sidebar border */
+}
+
 /* Top Navigation */
 .top-nav {
     background-color: var(--background-light);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: none;
     position: fixed;
     top: 0;
     right: 0;
@@ -148,15 +211,19 @@ p {
 
 /* Sections */
 .section {
-    display: none;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    padding: var(--spacing-xl) 0;
+    flex: 1;
+    flex-direction: column;
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-xl);
+    margin-bottom: 0;
+    box-shadow: var(--card-shadow);
+    display: none; /* Change this from flex to none */
+    min-height: calc(100vh - var(--header-height) - var(--spacing-xl) * 2);
 }
 
 .section.active {
-    display: block;
+    display: flex; /* Change this from block to flex */
     opacity: 1;
     transform: translateY(0);
 }
@@ -188,11 +255,46 @@ p {
     margin-top: var(--spacing-xl); /* Added extra space after the title */
 }
 
+/* Cards */
+.card {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+/* Form Elements */
+input, textarea, select {
+    background-color: var(--background-light);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--primary-dark);
+}
+
 /* =========================================
    About Section Styles
    ========================================= */
 
-.about-content {
+   .about-content {
     max-width: 1200px;
     margin: 0 auto;
     animation: fadeIn 0.8s ease-out;
@@ -433,7 +535,6 @@ p {
 
     .top-nav {
         left: 0;
-        display: none;
     }
 
     .top-nav.active {
@@ -459,6 +560,14 @@ p {
         justify-content: space-between;
     }
 
+    .main-content {
+        padding: calc(var(--header-height) + var(--spacing-md)) var(--spacing-md);
+    }
+
+    .section {
+        min-height: calc(100vh - var(--header-height) - var(--spacing-md) * 2);
+    }
+
     .section h2,
     .section-title {
         margin-bottom: var(--spacing-xl); /* Slightly reduced spacing on mobile */
@@ -477,7 +586,7 @@ p {
     }
 
     .section {
-        padding: var(--spacing-md) 0;
+        padding: var(--spacing-md) ;
     }
 
     .section-title {
