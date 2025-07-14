@@ -301,7 +301,8 @@ button:hover {
    ========================================= */
 
    .about-content {
-    max-width: 1200px;
+    max-width: 100%;
+    width: 100%;
     margin: 0 auto;
     animation: fadeIn 0.8s ease-out;
 }
@@ -358,7 +359,7 @@ button:hover {
     line-height: 1.8;
     color: var(--text-secondary);
     margin-bottom: var(--spacing-2xl);
-    max-width: 800px;
+    max-width: 100%;
 }
 
 /* Highlight Cards */
