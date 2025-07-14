@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('.section');
     const downloadButton = document.querySelector('.download-resume');
     const mobileThemeToggle = document.querySelector('.mobile-theme-toggle');
+    const desktopThemeToggle = document.querySelector('.desktop-theme-toggle');
 
     // State Management
     let currentSection = 'about';
@@ -59,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Theme Event Listeners
     mobileThemeToggle?.addEventListener('click', toggleTheme);
+    desktopThemeToggle?.addEventListener('click', toggleTheme);
 
     // Watch for system theme changes
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
