@@ -93,6 +93,11 @@
     padding: var(--spacing-lg);
     border-top: 1px solid var(--border-color);
     width: 100%;
+    box-sizing: border-box; /* Ensure padding is included in width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Social Links */
@@ -102,6 +107,7 @@
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
     flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    width: 100%;
 }
 
 .social-links a {
@@ -122,12 +128,10 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-
 /* Download Resume Button */
 .download-resume {
     width: 100%;
-    max-width: 200px; /* Set maximum width */
+    max-width: none; /* Remove max-width constraint */
     margin: 0 auto; /* Center the button */
     padding: var(--spacing-sm) var(--spacing-md);
     background-color: var(--primary-color);
@@ -142,6 +146,8 @@
     gap: var(--spacing-sm);
     cursor: pointer;
     transition: all 0.3s ease;
+    box-sizing: border-box; /* Ensure padding is included in width */
+    text-align: center;
 }
 
 .download-resume:hover {
@@ -217,7 +223,7 @@
     }
 
     .download-resume {
-        max-width: 180px;
+        width: 100%;
         padding: var(--spacing-xs) var(--spacing-sm);
     }
 
@@ -237,7 +243,7 @@
     }
 
     .download-resume {
-        max-width: 160px;
+        width: 100%;
         font-size: var(--font-size-xs);
     }
 }

@@ -4,12 +4,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.querySelector('.sidebar');
     const mainContent = document.querySelector('.main-content');
     const menuToggle = document.querySelector('.menu-toggle');
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+    const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+    const sidebarOverlay = document.querySelector('.sidebar-overlay');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
     const topNav = document.querySelector('.top-nav');
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.section');
     const downloadButton = document.querySelector('.download-resume');
-    const themeToggle = document.querySelector('.theme-toggle');
     const mobileThemeToggle = document.querySelector('.mobile-theme-toggle');
 
     // State Management
@@ -45,13 +48,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateThemeIcons() {
         const isDark = currentTheme === 'dark';
         document.querySelectorAll('.theme-toggle').forEach(toggle => {
-            toggle.querySelector('.light-icon').style.display = isDark ? 'block' : 'none';
-            toggle.querySelector('.dark-icon').style.display = isDark ? 'none' : 'block';
+            const lightIcon = toggle.querySelector('.light-icon');
+            const darkIcon = toggle.querySelector('.dark-icon');
+            if (lightIcon && darkIcon) {
+                lightIcon.style.display = isDark ? 'block' : 'none';
+                darkIcon.style.display = isDark ? 'none' : 'block';
+            }
         });
     }
 
     // Theme Event Listeners
-    themeToggle?.addEventListener('click', toggleTheme);
     mobileThemeToggle?.addEventListener('click', toggleTheme);
 
     // Watch for system theme changes
@@ -65,33 +71,45 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Mobile Menu Toggle Functions
-    function toggleSidebarMenu() {
+    function toggleSidebar() {
         sidebar.classList.toggle('active');
+        sidebarOverlay.classList.toggle('active');
+        sidebarToggle.classList.toggle('active');
+    }
+
+    function toggleMobileNavMenu() {
+        mobileNavMenu.classList.toggle('active');
+        mobileNavOverlay.classList.toggle('active');
         menuToggle.classList.toggle('active');
     }
 
     function toggleTopNavMenu() {
         topNav.classList.toggle('active');
-        mobileMenuToggle.classList.toggle('active');
     }
 
     // Event Listeners for Mobile Menus
-    menuToggle?.addEventListener('click', toggleSidebarMenu);
-    mobileMenuToggle?.addEventListener('click', toggleTopNavMenu);
+    menuToggle?.addEventListener('click', toggleMobileNavMenu);
+    sidebarToggle?.addEventListener('click', toggleSidebar);
+    
+    // Close mobile menu when clicking overlay
+    mobileNavOverlay?.addEventListener('click', toggleMobileNavMenu);
+    
+    // Close sidebar when clicking overlay
+    sidebarOverlay?.addEventListener('click', toggleSidebar);
 
     // Close menus when clicking outside
     document.addEventListener('click', (e) => {
         if (isMobile) {
-            if (sidebar.classList.contains('active') && 
-                !sidebar.contains(e.target) && 
+            if (mobileNavMenu.classList.contains('active') && 
+                !mobileNavMenu.contains(e.target) && 
                 !menuToggle.contains(e.target)) {
-                toggleSidebarMenu();
+                toggleMobileNavMenu();
             }
             
-            if (topNav.classList.contains('active') && 
-                !topNav.contains(e.target) && 
-                !mobileMenuToggle.contains(e.target)) {
-                toggleTopNavMenu();
+            if (sidebar.classList.contains('active') && 
+                !sidebar.contains(e.target) && 
+                !sidebarToggle.contains(e.target)) {
+                toggleSidebar();
             }
         }
     });
@@ -109,8 +127,15 @@ function navigateToSection(sectionId) {
         targetSection.style.display = 'block';
     }
 
-    // Update active state in navigation
+    // Update active state in navigation (both desktop and mobile)
     navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+        }
+    });
+
+    mobileNavLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${sectionId}`) {
             link.classList.add('active');
@@ -119,8 +144,8 @@ function navigateToSection(sectionId) {
 
     // Close mobile menus if open
     if (isMobile) {
-        if (sidebar.classList.contains('active')) {
-            toggleSidebarMenu();
+        if (mobileNavMenu.classList.contains('active')) {
+            toggleMobileNavMenu();
         }
         if (topNav.classList.contains('active')) {
             toggleTopNavMenu();
@@ -134,6 +159,15 @@ function navigateToSection(sectionId) {
 
     // Navigation Event Listeners
     navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const sectionId = link.getAttribute('href').substring(1);
+            navigateToSection(sectionId);
+        });
+    });
+
+    // Mobile Navigation Event Listeners
+    mobileNavLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const sectionId = link.getAttribute('href').substring(1);
@@ -178,9 +212,12 @@ function navigateToSection(sectionId) {
 
             if (wasNotMobile && isMobile) {
                 sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                sidebarToggle.classList.remove('active');
+                mobileNavMenu.classList.remove('active');
+                mobileNavOverlay.classList.remove('active');
                 topNav.classList.remove('active');
                 menuToggle?.classList.remove('active');
-                mobileMenuToggle?.classList.remove('active');
             }
         }, 250);
     });

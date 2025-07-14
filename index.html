@@ -34,25 +34,6 @@
 </head>
 <body>
 
-    <button class="theme-toggle" aria-label="Toggle theme">
-        <div class="theme-scene">
-            <!-- Day Scene -->
-            <div class="day-scene">
-                <div class="sun"></div>
-                <div class="cloud"></div>
-            </div>
-            
-            <!-- Night Scene -->
-            <div class="night-scene">
-                <div class="moon"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-                <div class="star"></div>
-            </div>
-        </div>
-    </button>
-
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -94,11 +75,6 @@
         <!-- Top Navigation -->
         <nav class="top-nav">
             <div class="container">
-                <!-- Theme Toggle for Mobile -->
-                <button class="theme-toggle mobile-theme-toggle" aria-label="Toggle theme">
-                    <i class="fas fa-sun light-icon"></i>
-                    <i class="fas fa-moon dark-icon"></i>
-                </button>
                 <ul class="nav-links">
                     <li>
                         <a href="#about" class="nav-link active" aria-current="page">
@@ -142,10 +118,53 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <h2 class="mobile-title">Portfolio</h2>
-                <button class="mobile-menu-toggle" aria-label="Toggle navigation">
-                    <i class="fas fa-ellipsis-v"></i>
-                </button>
+                <div class="mobile-nav-buttons">
+                    <button class="theme-toggle mobile-theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-sun light-icon"></i>
+                        <i class="fas fa-moon dark-icon"></i>
+                    </button>
+                    <button class="sidebar-toggle" aria-label="Toggle sidebar">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                </div>
             </nav>
+
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-nav-menu">
+                <ul class="mobile-nav-links">
+                    <li>
+                        <a href="#about" class="mobile-nav-link active">
+                            <i class="fas fa-user"></i>About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#experience" class="mobile-nav-link">
+                            <i class="fas fa-briefcase"></i>Experience
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#projects" class="mobile-nav-link">
+                            <i class="fas fa-code-branch"></i>Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#skills" class="mobile-nav-link">
+                            <i class="fas fa-tools"></i>Skills
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#education" class="mobile-nav-link">
+                            <i class="fas fa-graduation-cap"></i>Education
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Mobile Navigation Overlay -->
+            <div class="mobile-nav-overlay"></div>
+
+            <!-- Sidebar Overlay -->
+            <div class="sidebar-overlay"></div>
 
             <!-- Sections -->
             <section id="about" class="section active">
